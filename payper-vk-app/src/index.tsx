@@ -9,3 +9,6 @@ ReactDOM.render(
   document.getElementById('root') as HTMLElement
 );
 registerServiceWorker();
+
+declare module '*.png'
+declare module '*.jpg'

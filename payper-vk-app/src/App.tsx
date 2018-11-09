@@ -1,22 +1,18 @@
 import * as React from 'react';
-import './App.css';
+import Header from './Header';
+import StartPage from './containers/StartPage/StartPage';
+import { Box } from 'grommet';
 
-import logo from './logo.svg';
-
-class App extends React.Component {
+export default class App extends React.Component {
   public render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
+      <Box fill='vertical' background={{
+        "color": "neutral-1",
+        "opacity": 'weak'
+      }}>
+        <Header />
+        <StartPage />
+      </Box>
     );
   }
 }
-
-export default App;
