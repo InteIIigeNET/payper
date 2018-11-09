@@ -1,3 +1,7 @@
+enum RenderType{
+  state : string
+}
+
 export default interface SubscriptionState{
-    state : string
+    renderType : string
   }
