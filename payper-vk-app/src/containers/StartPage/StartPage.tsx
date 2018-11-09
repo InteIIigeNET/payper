@@ -1,11 +1,16 @@
 import * as React from 'react';
 //import Carousel from './Carousel';
-import HorizontalCarousel from './HorizontalCarousel';
+import PublishersCarousel from './PublishersCarousel';
+import CategoryCarousel from './CategoryCarousel';
 
 export default class StartPage extends React.Component {
   public render() {
     return (
-        <HorizontalCarousel />
+      <div>
+        <PublishersCarousel />
+        <CategoryCarousel/>
+      </div>
+
     );
   }
 }

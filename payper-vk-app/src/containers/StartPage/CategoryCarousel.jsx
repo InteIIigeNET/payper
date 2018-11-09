@@ -6,10 +6,8 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-import tileData from '../../logic/PaperRepository';
-import './HorizontalCarousel.css';
-import { Box } from 'grommet';
-import Paper from '@material-ui/core/Paper';
+import {categoryTileData} from '../../logic/PaperRepository';
+import './CategoryCarousel.css';
 
 const styles = theme => ({
   root: {
@@ -20,11 +18,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper,
     marginLeft: '2%',
     alignContent: 'stretch',
-  },
-  gridList: {
-    flexWrap: 'nowrap',
-    transform: 'translateZ(0)',
-    paddingBottom: '2%'
+    height: '50px'
   },
   title: {
     align: 'left',
@@ -32,38 +26,35 @@ const styles = theme => ({
   },
   titleBar: {
     background: 'gray',
-    height: '20%',
+    height: '100%',
     align: 'justify',
-    borderBottomLeftRadius: '5px',
-    borderBottomRightRadius: '5px'
+    borderRadius: '20px',
+  },
+  gridList: {
+    flexWrap: 'nowrap',
+    transform: 'translateZ(0)',
+    paddingBottom: '2%',
+    width: '100%'
   },
   gridListTile: {
-    boxShadow: '0 4px 8px rgba(0,0,0,0.25)',
-    margin: '5px',
-    borderRadius : '5px',
+    margin: '5px'
   },
-  gridListTileImageH: {
-    height: '95%',
-    width: '100%'
-  }
 });
 
 
-function SingleLineGridList(props) {
+function CategoryCarousel(props) {
   const { classes } = props;
 
   return (
     <div className='carousel'>
-      <div className='publishers'>Издания</div>
+      <div className='categories'>Поиск по категориям</div>
       <div className={classes.root}>
 
-        <GridList className={classes.gridList} cols={3} rows={0.5} spacing={0} >
-          {tileData.map(tile => (
-              <GridListTile key={tile.img} classes={{
-                root: classes.gridListTile,
-                imgFullHeight: classes.gridListTileImageH
+        <GridList className={classes.gridList} cols={3} spacing={0} cellHeight='auto' >
+          {categoryTileData.map(tile => (
+              <GridListTile classes={{
+                root: classes.gridListTile
                 }}>
-                <img src={tile.img} alt={tile.title}/>
                 <GridListTileBar
                   title={tile.title}
                   classes={{
@@ -79,8 +70,8 @@ function SingleLineGridList(props) {
   );
 }
 
-SingleLineGridList.propTypes = {
+CategoryCarousel.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SingleLineGridList);
+export default withStyles(styles)(CategoryCarousel);
