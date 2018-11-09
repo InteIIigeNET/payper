@@ -4,5 +4,5 @@ export default interface ISubscription
     description: string,
     isPayed: boolean
     price?: number,
-    id: string
+    code: string,
 }

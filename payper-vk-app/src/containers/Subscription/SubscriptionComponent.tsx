@@ -11,6 +11,8 @@ import SubscriptionState from './SubscriptionState';
 import TrialComponent from '../Trial/TrialComponent';
 import logo from '../../logo.svg';
 import UnsubscribeComponent from '../Unsubscribe/UnsubscribeComponent';
+import NotifyRenderType from './NotifyRenderType';
+import SubscriptionStyles from '../Styles/SubscriptionStyles';
 
 export default class SubscriptionComponent extends 
     React.Component<SubscriptionProps, SubscriptionState> {
@@ -26,7 +28,7 @@ export default class SubscriptionComponent extends
         return (
           <div>
             {this.renderNotify()}
-            <Card >
+            <Card style={SubscriptionStyles.card}>
                     <CardActionArea>
                       <CardMedia
                         image={logo}
@@ -51,11 +53,12 @@ export default class SubscriptionComponent extends
     switch(this.state.renderType){
       case NotifyRenderType.Default: return;
       case NotifyRenderType.TrialForm: 
-        return <TrialComponent onTry={this.tryTrial}
+        return <TrialComponent onTry={this.subscribe}
                                onCancel={this.cancel}/>
       case NotifyRenderType.UnsubscribeConfirm: 
         return <UnsubscribeComponent onTry={this.unsubscribe}
                                      onCancel={this.cancel}/>
+      default: return
     }
   }
 
@@ -63,34 +66,38 @@ export default class SubscriptionComponent extends
         if(!this.props.subscription.isPayed){
             return (<CardActions>
                 <Button variant="contained" size="small" color="primary" >
-                 {this.formatPrice()}
+                 {this.formatBuyButton()}
                 </Button>
-                <Button size="small" 
-                        color="primary" 
-                        onClick={() => this.setState({renderType: NotifyRenderType.TrialForm})}>
-                 Попробовать
-                </Button>
+                {this.formatTryButton()}
               </CardActions>)
         }
-        else return (<CardActions><Button variant="contained" size="small" color="secondary">
+        else return (<CardActions><Button variant="contained" 
+                                          size="small" 
+                                          color="secondary"
+                                          onClick={() => this.setState({renderType: NotifyRenderType.UnsubscribeConfirm})}>
        Отписаться 
       </Button></CardActions>)
     }
 
-    formatPrice = () => {
+    formatBuyButton = () => {
       return !this.props.subscription.price
       ? "Бесплатно" 
       : `Подписаться ${this.props.subscription.price}Р`
     }
 
-    subscribe = () => {
+    formatTryButton = () => {
+      if(!this.props.subscription.price) return;
+      return <Button size="small" 
+                        color="primary" 
+                        onClick={() => this.setState({renderType: NotifyRenderType.TrialForm})}>
+                 Попробовать
+            </Button>
+    }
+
+    subscribe = (email?: string, promo?: string) => {
       this.setState({renderType: NotifyRenderType.Default})
     }
     unsubscribe = () => {
-      this.setState({renderType: NotifyRenderType.Default})
-    }
-
-    tryTrial = () => {
       this.setState({renderType: NotifyRenderType.Default})
     }
 

@@ -1,4 +1,4 @@
 interface TrialProps{
-    onTry:  React.ReactEventHandler<{}>,
+    onTry:  (email?: string, promo?: string) => void,
     onCancel:  React.ReactEventHandler<{}>
 }

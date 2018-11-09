@@ -15,7 +15,7 @@ export default class UnsubscribeComponent extends React.Component<UnsubscribePro
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogTitle id="alert-dialog-slide-title">
-          {"Вы уверены, что хотите отписаться от рассылки? Данное действие невозможно отменить"}
+          {"Подтверждение отписки"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">

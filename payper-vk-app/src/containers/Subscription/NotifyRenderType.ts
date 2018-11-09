@@ -3,3 +3,5 @@ enum NotifyRenderType{
     TrialForm = "trialFrom",
     UnsubscribeConfirm = "unsubscribeConfirm"
 }
+
+export default NotifyRenderType

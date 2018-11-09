@@ -5,7 +5,7 @@ import TrialState from './TrialState';
 export default class TrialComponent extends React.Component<TrialProps, TrialState> {
     constructor(props : TrialProps){
         super(props)
-        this.state = {isOpen: true}
+        this.state = {}
     }
 
     public render() {
@@ -27,6 +27,7 @@ export default class TrialComponent extends React.Component<TrialProps, TrialSta
                 type="email"
                 variant="filled"
                 fullWidth
+                onChange={event => {this.setState({email: event.target.value})}}
               />
               <TextField
                 margin="dense"
@@ -35,10 +36,11 @@ export default class TrialComponent extends React.Component<TrialProps, TrialSta
                 type="promo"
                 variant="filled"
                 fullWidth
+                onChange={event => {this.setState({promocode: event.target.value})}}
               />
             </DialogContent>
             <DialogActions>
-              <Button onClick={this.props.onTry} color="primary">
+              <Button onClick={() => this.props.onTry(this.state.email, this.state.promocode)} color="primary">
                 Попробовать
               </Button>
               <Button onClick={this.props.onCancel} color="secondary">

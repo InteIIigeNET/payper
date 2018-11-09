@@ -1,3 +1,4 @@
 export default  interface TrialState{
-    isOpen: boolean;
+    email?: string,
+    promocode?: string
 }

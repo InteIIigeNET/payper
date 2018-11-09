@@ -1,7 +1,5 @@
-enum RenderType{
-  state : string
-}
+import NotifyRenderType from './NotifyRenderType';
 
 export default interface SubscriptionState{
-    renderType : string
+    renderType : NotifyRenderType
   }
