@@ -1,4 +1,4 @@
-import { Heading, Paragraph } from 'grommet'
+﻿import { Heading, Paragraph } from 'grommet'
 import * as React from 'react'
 import EditionProps from './EditionProps';
 import SubscriptionTileComponent from '../SubscriptionTile/SubscriptionTileComponent';
