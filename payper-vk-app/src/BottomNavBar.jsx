@@ -11,25 +11,42 @@ import ListIcon from '@material-ui/icons/List';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import './BottomNavBar.css';
-
-const styles = {
-    //   root: {
-    //     width: 500,
-    //   },
-};
+import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 class BottomNavBar extends React.Component {
     state = {
-        value: 0,
+        value: -1,
     };
 
     handleChange = (event, value) => {
         this.setState({ value });
+        switch (value) {
+            case 0:
+                var path = '/';
+                this.props.history.push(path);
+                break;
+            case 1:
+                // var path = '/';
+                // return (<Redirect push to={path}>
+                // </Redirect>);
+                break;
+            case 2:
+                // var path = '/';
+                // return (<Redirect push to={path}>
+                // </Redirect>);
+                break;
+            case 3:
+                var path = '/profile';    
+                this.props.history.push(path);
+                break;
+        }
     };
 
     render() {
-        const { classes } = this.props;
         const { value } = this.state;
+
+        
 
         return (
             <div className='nav-bar'>
@@ -37,7 +54,6 @@ class BottomNavBar extends React.Component {
                     value={value}
                     onChange={this.handleChange}
                     showLabels
-                //className={classes.root}
                 >
                     <BottomNavigationAction label="Подборка" icon={<DashboardIcon />} />
                     <BottomNavigationAction label="Список" icon={<ListIcon />} />
@@ -49,8 +65,5 @@ class BottomNavBar extends React.Component {
     }
 }
 
-BottomNavBar.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
 
-export default withStyles(styles)(BottomNavBar);
+export default withRouter(BottomNavBar);

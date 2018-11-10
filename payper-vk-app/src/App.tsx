@@ -6,6 +6,7 @@ import { Switch, Route } from 'react-router-dom';
 import StartPage from './containers/StartPage/StartPage';
 import EditionComponent from './containers/Edition/EditionComponent';
 import AppHeader from './AppHeader';
+import Profile from './containers/Profile/Profile';
 
 export default class App extends React.Component {
   public render() {
@@ -20,6 +21,7 @@ export default class App extends React.Component {
             <Switch>
               <Route exact path='/' component={StartPage} />
               <Route path='/editions/:id' component={EditionComponent} />
+              <Route path='/profile' component={Profile} />
             </Switch>
           </Box>
         </div>
