@@ -1,4 +1,4 @@
-﻿namespace Payper.Api.Models.Paper
+﻿namespace Payper.Api.Models.API
 {
 	public class SubscriptionsResult
 	{

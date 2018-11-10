@@ -3,11 +3,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Payper.Api.Models.Publishers;
 using Payper.Api.Repositories;
+using Payper.Api.Services;
 using AppContext = Payper.Api.Models.AppContext;
 
 namespace Payper.Api
@@ -28,8 +27,8 @@ namespace Payper.Api
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 			services.AddDbContext<AppContext>(options => options.UseSqlServer(connection));
 			services.AddScoped<IUsersRepository, UsersRepository>();
-			services.AddScoped<IPublishersRepository, PublishersRepository>();
 			services.AddScoped<IUserSubscriptionsRepository, UserSubscriptionsRepository>();
+			services.AddScoped<IPaperService, PaperService>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -282,3 +282,14 @@ paket-files/
 __pycache__/
 *.pyc
 payper-vk-app/src/models/IUserSubscription.ts
+payper-vk-app/src/models/ValidationResult.ts
+payper-vk-app/src/models/UserSubscription.ts
+payper-vk-app/src/containers/Publisher/PublisherComponent.tsx
+payper-vk-app/src/models/Subscription.ts
+payper-vk-app/src/models/Publisher.ts
+payper-vk-app/src/containers/Publisher/Subscription.tsx
+payper-vk-app/src/containers/Publisher/Subscription.css
+payper-vk-app/src/containers/Publisher/PublisherProps.ts
+payper-vk-app/src/containers/Publisher/PublisherComponent.css
+payper-vk-app/src/Utils/urlBuilder.js
+payper-vk-app/src/Api/PaperApi.ts

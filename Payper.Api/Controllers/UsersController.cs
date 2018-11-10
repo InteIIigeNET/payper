@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Payper.Api.Models.Subscriptions;
 using Payper.Api.Models.Users;
 using Payper.Api.Repositories;
 
@@ -18,16 +17,15 @@ namespace Payper.Api.Controllers
 	    }
 
 	    [HttpPost("add")]
-	    public async Task Add(long id)
+	    public async Task Add(long id, string email)
 	    {
-		    await _usersRepository.Add(
-				new User{Id = id});
+		    await _usersRepository.Add(new User{VkId = id, Email = email});
 	    }
 
-	    [HttpGet("{id}")]
-	    public User Get(long id)
+	    [HttpGet("")]
+	    public User Get(string email)
 	    {
-		    return _usersRepository.Get(id);
+		    return _usersRepository.Get(email);
 	    }
 	}
 }

@@ -22,34 +22,9 @@ namespace Payper.Api.Repositories
 			await _context.SaveChangesAsync();
 		}
 
-		public User Get(long userId)
+		public User Get(string email)
 		{
-			return _context.Users.Include(t => t.UserSubscriptions)
-				.FirstOrDefault(u => u.Id == userId);
-		}
-
-		public async Task AddSubscription(long userId, UserSubscription sub)
-		{
-			var user = Get(userId);
-			if (user == null) return;
-
-			_context.UserSubscriptions.Add(sub);
-			await _context.SaveChangesAsync();
-
-			user.UserSubscriptions.Add(sub);
-			await _context.SaveChangesAsync();
-		}
-
-		public async Task RemoveSubscription(long userId, UserSubscription sub)
-		{
-			var user = Get(userId);
-			var subscription = 
-				_context.UserSubscriptions.FirstOrDefault(t => t.Code == sub.Code && t.UserId == sub.UserId);
-			if (user == null || subscription == null) return;
-
-			user.UserSubscriptions.Remove(subscription);
-			_context.UserSubscriptions.Remove(subscription);
-			await _context.SaveChangesAsync();
+			return _context.Users.FirstOrDefault(u => u.Email == email);
 		}
 	}
 }
