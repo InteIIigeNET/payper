@@ -1,6 +1,6 @@
 import connect from '@vkontakte/vkui-connect'
 import VKConst from './VKConst'
-import * as Crypto from "crypto"
+
 
 enum VKRequest {
     INIT                = 'VKWebAppInit',
@@ -73,7 +73,7 @@ export default class VKConnection {
             let result = JSON.parse(e.detail.data);
 
             if (e.detail.type == VKRequestAnswers.GET_EMAIL_SUCCESS) {
-                let sign : string = result.sign;
+                
                 let email : string = result.email;
 
                 // check to correct sign
