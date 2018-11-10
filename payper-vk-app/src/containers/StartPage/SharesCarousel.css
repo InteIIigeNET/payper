@@ -1,0 +1,19 @@
+.shares{
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-bottom: 3%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    font-size: 18px;
+    color: #000000;
+}
+
+.carousel{
+    background: white;
+    margin-top: 4%;
+    border-radius: 2%;
+    margin-bottom: 4%;
+    overflow: hidden;
+}
