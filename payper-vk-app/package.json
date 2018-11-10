@@ -2,7 +2,9 @@
   "name": "payper-vk-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://InteIIigeNET.github.io/payper/",
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "grommet": "^2.0.0-rc",
     "grommet-icons": "^3.2.0",
     "react": "^16.6.1",
@@ -13,7 +15,9 @@
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
+    "eject": "react-scripts-ts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "@types/jest": "^23.3.9",
