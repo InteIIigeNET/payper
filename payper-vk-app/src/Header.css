@@ -1,3 +1,9 @@
+.logo{
+    width: 35%;
+    transform: translateX(+85%);
+    position: absolute;
+}
+
 .app-bar{
     position: fixed;
     top: 0; 

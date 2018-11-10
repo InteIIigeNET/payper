@@ -10,6 +10,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { withRouter } from 'react-router'
+import './Header.css';
+import logo from './img/logo.png'
 
 const styles = {
   root: {
@@ -19,11 +21,20 @@ const styles = {
     flexGrow: 1,
   },
   backButton: {
-    marginLeft: -12,
-    marginRight: 20,
+    marginLeft: '2px',
+    transform: 'translateX(-50%)'
   },
   appBarDefaultColor: {
-    backgroundColor: 'grey'
+    backgroundColor: 'white'
+  },
+  appBarRoot: {
+    height: '3em',
+    display: 'block'
+  },
+  toolbarRoot: {
+    display: 'flex',
+    justifyContent: 'flex-start',
+    position: 'relative'
   }
 };
 
@@ -31,7 +42,7 @@ class AppHeader extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const {pathname} = this.props.location;
+    const { pathname } = this.props.location;
     var button = null;
     if (pathname != '/') {
       button =
@@ -40,17 +51,20 @@ class AppHeader extends React.Component {
         </IconButton>);
     }
     return (
-      <div className={classes.root}>
-        <AppBar position="static" color='default' classes={{
-          colorDefault: classes.appBarDefaultColor
-        }}>
-          <Toolbar>
-            {button}
-            <Typography variant="h6" color="inherit" className={classes.grow}>
-              payper
-            </Typography>
-          </Toolbar>
-        </AppBar>
+      <div className='app-bar'>
+        <div className={classes.root}>
+          <AppBar color='default' classes={{ 
+            colorDefault: classes.appBarDefaultColor,
+            root: classes.appBarRoot
+          }}> 
+            <Toolbar classes={{
+              root: classes.toolbarRoot
+            }}>
+              {button}
+              <img src={logo} className='logo' alt='logo' />
+            </Toolbar>
+          </AppBar>
+        </div>
       </div>
     );
   }
