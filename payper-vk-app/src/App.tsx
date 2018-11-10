@@ -3,7 +3,9 @@ import Header from './Header';
 import { Box } from 'grommet';
 import BottomNavBar from './BottomNavBar';
 import './App.css'
-import CurrentPage from './containers/CurrentPage/CurrentPage';
+import { Switch, Route } from 'react-router-dom';
+import StartPage from './containers/StartPage/StartPage';
+import EditionComponent from './containers/Edition/EditionComponent';
 
 export default class App extends React.Component {
   public render() {
@@ -15,7 +17,10 @@ export default class App extends React.Component {
             "color": "neutral-1",
             "opacity": 'weak'
           }}>
-            <CurrentPage />
+            <Switch>
+              <Route exact path='/' component={StartPage} />
+              <Route path='/editions/:id' component={EditionComponent} />
+            </Switch>
           </Box>
         </div>
         <BottomNavBar />

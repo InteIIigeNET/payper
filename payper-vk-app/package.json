@@ -4,14 +4,15 @@
   "private": true,
   "homepage": "https://InteIIigeNET.github.io/payper/",
   "dependencies": {
-    "gh-pages": "^2.0.1",
     "@material-ui/core": "^3.4.0",
     "@material-ui/icons": "^3.0.1",
+    "gh-pages": "^2.0.1",
     "grommet": "^2.0.0-rc",
     "grommet-icons": "^3.2.0",
     "jslint": "^0.12.0",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
+    "react-router-dom": "^4.3.1",
     "react-scripts-ts": "3.1.0",
     "styled-components": "^4.0.3",
     "tslint": "^5.11.0"
@@ -30,6 +31,7 @@
     "@types/node": "^10.12.3",
     "@types/react": "^16.7.1",
     "@types/react-dom": "^16.0.9",
+    "@types/react-router-dom": "^4.3.1",
     "typescript": "^3.1.6"
   }
 }
