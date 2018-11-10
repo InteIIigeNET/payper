@@ -1,13 +1,16 @@
 {
-  "main.css": "static/css/main.bc272572.css",
-  "main.css.map": "static/css/main.bc272572.css.map",
-  "main.js": "static/js/main.73d61ad6.js",
-  "main.js.map": "static/js/main.73d61ad6.js.map",
+  "main.css": "static/css/main.6070dfc3.css",
+  "main.css.map": "static/css/main.6070dfc3.css.map",
+  "main.js": "static/js/main.f446b687.js",
+  "main.js.map": "static/js/main.f446b687.js.map",
   "static\\media\\kokokotlin.jpg": "static/media/kokokotlin.33a7dba3.jpg",
   "static\\media\\lentach.jpg": "static/media/lentach.4e6c7205.jpg",
+  "static\\media\\logo.png": "static/media/logo.8e90fef7.png",
   "static\\media\\meme.jpg": "static/media/meme.6d51f34b.jpg",
   "static\\media\\orange.jpg": "static/media/orange.a8c666ea.jpg",
   "static\\media\\paper.jpg": "static/media/paper.f47f461f.jpg",
-  "static\\media\\sharePOP.png": "static/media/sharePOP.02c66820.png",
-  "static\\media\\wine.png": "static/media/wine.0f0953e6.png"
+  "static\\media\\paperHeader.jpg": "static/media/paperHeader.949c16f2.jpg",
+  "static\\media\\popcorn.png": "static/media/popcorn.d8c0eac9.png",
+  "static\\media\\sharePOP.png": "static/media/sharePOP.3b681416.png",
+  "static\\media\\wine.png": "static/media/wine.b9e231fd.png"
 }
