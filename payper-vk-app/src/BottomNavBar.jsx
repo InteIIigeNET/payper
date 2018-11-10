@@ -6,7 +6,11 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
-import './BottomNavBar.css'
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import ListIcon from '@material-ui/icons/List';
+import SearchIcon from '@material-ui/icons/Search';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import './BottomNavBar.css';
 
 const styles = {
     //   root: {
@@ -35,9 +39,10 @@ class BottomNavBar extends React.Component {
                     showLabels
                 //className={classes.root}
                 >
-                    <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-                    <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-                    <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+                    <BottomNavigationAction label="Подборка" icon={<DashboardIcon />} />
+                    <BottomNavigationAction label="Список" icon={<ListIcon />} />
+                    <BottomNavigationAction label="Поиск" icon={<SearchIcon />} />
+                    <BottomNavigationAction label="Профиль" icon={<AccountCircleIcon />} />
                 </BottomNavigation>
             </div>
         );

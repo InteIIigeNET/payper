@@ -29,14 +29,9 @@ const styles = theme => ({
     boxShadow: '2.5px 2.5px 8px rgba(0,0,0,0.25)',
     borderRadius: '20px'
   },
-  gridListTileImgH: {
-    height: '100%',
-    width: '100%',
-  },
-  gridListTileImgW: {
-    width: '100%',
-    height: '100%',
-  },
+  gridListTileImage: {
+    borderRadius: '20px',
+  }
 });
 
 
@@ -52,8 +47,7 @@ function SharesCarousel(props) {
           {sharesTileData.map(tile => (
               <GridListTile rows={0.8} classes={{
                 root: classes.gridListTile,
-                imgFullHeight: classes.gridListTileImgH,
-                imgFullWidth: classes.gridListTileImgW,
+                tile: classes.gridListTileImage
                 }}>
                 <img src={tile.img}/>
               </GridListTile>
