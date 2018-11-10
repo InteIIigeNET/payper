@@ -73,13 +73,13 @@ export default class SubscriptionTileComponent extends
     }
 
     formatBuyButton = () => {
-      return !this.props.subscription.price
+      return this.props.subscription.price === 0
       ? "Бесплатно" 
       : `Подписаться ${this.props.subscription.price}Р`
     }
 
     formatTryButton = () => {
-      if(!this.props.subscription.price) return;
+      if(this.props.subscription.price === 0) return;
       return <Button size="small" 
                         color="primary" 
                         onClick={() => this.setState({renderType: NotifyRenderType.TrialConfirm})}>

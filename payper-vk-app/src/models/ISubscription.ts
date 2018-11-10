@@ -3,7 +3,7 @@
     title: string,
     description: string,
     isPayed: boolean,
-    price?: number,
+    price: number,
     code: string,
     imgUrl?: string
 }
