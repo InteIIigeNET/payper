@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Header from './Header';
-import StartPage from './containers/StartPage/StartPage';
 import { Box } from 'grommet';
 import BottomNavBar from './BottomNavBar';
 import './App.css'
+import CurrentPage from './containers/CurrentPage/CurrentPage';
 
 export default class App extends React.Component {
   public render() {
@@ -15,7 +15,7 @@ export default class App extends React.Component {
             "color": "neutral-1",
             "opacity": 'weak'
           }}>
-            <StartPage />
+            <CurrentPage />
           </Box>
         </div>
         <BottomNavBar />
