@@ -12,10 +12,10 @@ export default class EditionComponent extends React.Component<EditionProps, {}> 
             <div style={EditionStyles.mainDiv}>
                 <div style = {EditionStyles.headerDiv}>
                 <Heading level="1">
-                         {this.props.title}
+                         {this.props.edition.title}
                 </Heading>
                 <Paragraph>
-                    {`${this.props.description}`}
+                    {`${this.props.edition.description}`}
                 </Paragraph>
                 <Button color="primary" fullWidth>
                     Написать сообществу
@@ -28,10 +28,10 @@ export default class EditionComponent extends React.Component<EditionProps, {}> 
     }
 
     formatSubscriptions = () => {
-            if(!this.props.subscriptions) return;
+            if(!this.props.edition.subscriptions) return;
             return (
                 <div>
-                {this.props.subscriptions.map((sub) =>
+                {this.props.edition.subscriptions.map((sub) =>
                     <SubscriptionTileComponent subscription={sub}/>
                 )}</div>
             )
