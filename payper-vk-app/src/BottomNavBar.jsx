@@ -17,6 +17,7 @@ import { withRouter } from 'react-router';
 class BottomNavBar extends React.Component {
     state = {
         value: -1,
+        visible: true
     };
 
     handleChange = (event, value) => {
@@ -43,11 +44,12 @@ class BottomNavBar extends React.Component {
         }
     };
 
+
     render() {
         const { value } = this.state;
 
         
-
+        if(this.state.visible)
         return (
             <div className='nav-bar'>
                 <BottomNavigation

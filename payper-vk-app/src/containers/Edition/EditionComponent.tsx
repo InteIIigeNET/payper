@@ -14,7 +14,7 @@ export default class EditionComponent extends React.Component<RouteComponentProp
     private getEdition(id: number): IEdition {
         return {
             title: 'Бумага',
-            description: "Когда-то мы придумали еженедельное письмо для читателей, в котором редакторы по-дружески рассказывают о самых интересных делах, которыми можно заняться в Петербурге на выходных.",
+            description: "Бумага» — интернет-газета о городе и обществе. Мы представляем независимый взгляд из Петербурга на российскую и городскую повестку.",
             subscriptions:
                 [{ title: "Что интересного на ближайших выходных в Петербурге?", description: "Три письма: о вине, петербургских домах и искусстве — по цене двух подписок", isPayed: false, price: 101, code: "1" },
                 { title: "Бесплатная подписка", description: "Неинформативное описание", isPayed: false, code: "2" },
