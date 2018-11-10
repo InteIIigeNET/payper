@@ -6,46 +6,67 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
-import './BottomNavBar.css'
-
-const styles = {
-    //   root: {
-    //     width: 500,
-    //   },
-};
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import ListIcon from '@material-ui/icons/List';
+import SearchIcon from '@material-ui/icons/Search';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import './BottomNavBar.css';
+import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 class BottomNavBar extends React.Component {
     state = {
-        value: 0,
+        value: -1,
+        visible: true
     };
 
     handleChange = (event, value) => {
         this.setState({ value });
+        switch (value) {
+            case 0:
+                var path = '/';
+                this.props.history.push(path);
+                break;
+            case 1:
+                // var path = '/';
+                // return (<Redirect push to={path}>
+                // </Redirect>);
+                break;
+            case 2:
+                // var path = '/';
+                // return (<Redirect push to={path}>
+                // </Redirect>);
+                break;
+            case 3:
+                var path = '/profile';    
+                this.props.history.push(path);
+                break;
+        }
     };
 
-    render() {
-        const { classes } = this.props;
-        const { value } = this.state;
 
+    render() {
+        const { value } = this.state;
+        const { pathname } = this.props.location;
+        
+        if(!pathname.startsWith('/page/'))
         return (
             <div className='nav-bar'>
                 <BottomNavigation
                     value={value}
                     onChange={this.handleChange}
                     showLabels
-                //className={classes.root}
                 >
-                    <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-                    <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-                    <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+                    <BottomNavigationAction label="Подборка" icon={<DashboardIcon />} />
+                    <BottomNavigationAction label="Список" icon={<ListIcon />} />
+                    <BottomNavigationAction label="Поиск" icon={<SearchIcon />} />
+                    <BottomNavigationAction label="Профиль" icon={<AccountCircleIcon />} />
                 </BottomNavigation>
             </div>
         );
+        return null;
     }
 }
 
-BottomNavBar.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
 
-export default withStyles(styles)(BottomNavBar);
+export default withRouter(BottomNavBar);

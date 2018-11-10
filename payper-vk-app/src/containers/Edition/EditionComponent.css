@@ -1,0 +1,47 @@
+.header{
+    width: 100%;
+
+}
+
+.info{
+    display: flex;
+    justify-content: flex-start;
+    margin-right: 0.5em;
+}
+
+.info div{
+    margin-top: 0.7em;
+    font-size: 1em;
+}
+
+.info-icon{
+    margin-top: 0.6em;
+    margin-left: 0.4em;
+    margin-right: 0.4em;
+}
+
+.community{
+    display: flex;
+    justify-content: flex-start;
+    margin-right: 0.5em;
+}
+
+.community a{
+    margin-top: 0.7em;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.community-icon{
+    margin-top: 0.4em;
+    margin-left: 0.4em;
+    margin-right: 0.4em;
+    margin-bottom: 0.4em;
+}
+
+.headerDiv {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 20;
+    background-color: white;
+    margin-bottom: 1em;
+  }

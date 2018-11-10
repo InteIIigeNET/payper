@@ -24,31 +24,6 @@ export default class SubscriptionTileComponent extends
       }
     }
 
-    public render() {
-        return (
-          <div>
-            {this.renderNotify()}
-            <Card style={SubscriptionTileStyles.card}>
-                    <CardActionArea onClick={() => this.setState({showFull: !this.state.showFull})}>
-                      <CardMedia
-                        image={this.props.subscription.imgUrl}
-                        title={this.props.subscription.title}
-                      />
-                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
-                         {this.props.subscription.title}
-                        </Typography>
-                        <Typography component="p">
-                          {this.formatDescription()}
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                    {this.formatFooter()}
-                  </Card>
-                  </div>
-        );
-    }
-
   renderNotify = () => {
     switch(this.state.renderType){
       case NotifyRenderType.Default: return;
@@ -122,4 +97,29 @@ export default class SubscriptionTileComponent extends
     cancel = () => {
       this.setState({renderType: NotifyRenderType.Default})
     }
+
+    public render() {
+      return (
+        <div>
+          {this.renderNotify()}
+          <Card style={SubscriptionTileStyles.card}>
+                  <CardActionArea onClick={() => this.setState({showFull: !this.state.showFull})}>
+                    <CardMedia
+                      image={this.props.subscription.imgUrl}
+                      title={this.props.subscription.title}
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="h2">
+                       {this.props.subscription.title}
+                      </Typography>
+                      <Typography component="p">
+                        {this.formatDescription()}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  {this.formatFooter()}
+                </Card>
+                </div>
+      );
+  }
 }
