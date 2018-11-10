@@ -1,26 +1,25 @@
 import connect from '@vkontakte/vkui-connect'
+import VKConst from './VKConst'
 import * as Crypto from "crypto"
 
 enum VKRequest {
-    INIT         = 'VKWebAppInit',
-    GET_EMAIL    = 'VKWebAppGetEmail',
-    PAY_TO_GROUP = 'VKWebAppOpenPayForm'
+    INIT                = 'VKWebAppInit',
+    GET_EMAIL           = 'VKWebAppGetEmail',
+    PAY_TO_GROUP        = 'VKWebAppOpenPayForm',
+    ALLOW_NOTIFICATIONS = 'VKWebAppAllowNotifications'
 }
 
 enum VKRequestAnswers {
-    GET_EMAIL_SUCCESS    = 'VKWebAppGetEmailResult',
-    GET_EMAIL_FAIL       = 'VKWebAppGetEmailFailed',
-    PAY_TO_GROUP_SUCCESS = 'VKWebAppOpenPayFormResult',
-    PAY_TO_GROUP_FAIL    = 'VKWebAppOpenPayFormFailed',
-    FAIL                 = 'EventNameFailed'
+    GET_EMAIL_SUCCESS           = 'VKWebAppGetEmailResult',
+    GET_EMAIL_FAIL              = 'VKWebAppGetEmailFailed',
+    PAY_TO_GROUP_SUCCESS        = 'VKWebAppOpenPayFormResult',
+    PAY_TO_GROUP_FAIL           = 'VKWebAppOpenPayFormFailed',
+    ALLOW_NOTIFICATIONS_SUCCESS = 'VKWebAppAllowNotificationsResult',
+    ALLOW_NOTIFICATIONS_FAIL    = 'VKWebAppAllowNotificationsFailed',
+    FAIL                        = 'EventNameFailed'
 }
 
 export default class VKConnection {
-    private static _appSecureKey : string  = '708CwWqxf6MzsUHuWyLe';
-    private static _appServiceKey : string = '4fc061164fc061164fc06116b44fa6956444fc04fc06116142668b3bedafc451b287db4';
-    private static _test_app_id : number   = 6747250;
-    private static _test_group_id : number = 173750664;
-
     // @ts-ignore
     private static _SendErrorMsg(errorJSON, funcFAIL : (error : string) => void) {
         switch (errorJSON.error_type) {
@@ -35,8 +34,6 @@ export default class VKConnection {
     }
 
     static Init(funcFAIL : (error : string) => void) {
-        connect.send(VKRequest.INIT);
-
         // @ts-ignore
         connect.subscribe((e) => {
             let result = JSON.parse(e.detail.data);
@@ -49,6 +46,25 @@ export default class VKConnection {
                     break;
             }
         });
+
+        connect.send(VKRequest.INIT, {});
+    }
+
+    static AllowNotifications(funcOK : () => void, funcFAIL : (error : string) => void) {
+        // @ts-ignore
+        connect.subscribe((e) => {
+            let result = JSON.parse(e.detail.data);
+
+            if (e.detail.type == VKRequestAnswers.ALLOW_NOTIFICATIONS_SUCCESS) {
+                funcOK();
+            }
+
+            if (e.detail.type == VKRequestAnswers.ALLOW_NOTIFICATIONS_FAIL) {
+                this._SendErrorMsg(result, funcFAIL);
+            }
+        });
+
+        connect.send(VKRequest.ALLOW_NOTIFICATIONS);
     }
 
     static GetEmail(funcOK : (email : string) => void, funcFAIL : (error : string) => void) {
@@ -61,15 +77,15 @@ export default class VKConnection {
                 let email : string = result.email;
 
                 // check to correct sign
-                let hash = Crypto.createHash("sha256");
+                /*let hash = Crypto.createHash("sha256");
                 let trueSign = (this._test_app_id + this._appSecureKey + "email" + email);
                 hash.update(trueSign);
-                trueSign = new Buffer(trueSign, 'base64').toString();
+                trueSign = new Buffer(trueSign, 'base64').toString();*/
 
-                if (sign == trueSign) {
+                //if (sign == trueSign) {
                     // email correct, go function takes it.
                     funcOK(email);
-                }
+                //}
             }
 
             if (e.detail.type == VKRequestAnswers.GET_EMAIL_FAIL) {
@@ -99,20 +115,15 @@ export default class VKConnection {
             }
         });
 
-        let params = {
-            amount: price,
-            description: "",
-            action: "pay-to-group",
-            group_id: this._test_group_id
-        };
-
-        let sendHandle = {
-            app_id: this._test_app_id,
-            action: "pay-to-group",
-            params: params
-        };
-
-        let JSONSendHandle = JSON.stringify(sendHandle);
-        connect.send(VKRequest.PAY_TO_GROUP, JSONSendHandle);
+        connect.send(VKRequest.PAY_TO_GROUP, {
+            "app_id": 6747250,
+            "action": "pay-to-group",
+            "params": {
+                "amount": price,
+                "description": "Оплата подписки",
+                "action": "pay-to-group",
+                "group_id": VKConst.test_group_id
+            }
+        });
     }
 }
