@@ -6,21 +6,21 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import SubscriptionProps from './SubscriptionProps'; 
-import SubscriptionState from './SubscriptionState';
-import TrialComponent from '../Trial/TrialComponent';
-import logo from '../../logo.svg';
+import SubscriptionTileProps from './SubscriptionTileProps'; 
+import SubscriptionTileState from './SubscriptionTileState';
+import SubscribeComponent from '../Subscribe/SubscribeComponent';
 import UnsubscribeComponent from '../Unsubscribe/UnsubscribeComponent';
 import NotifyRenderType from './NotifyRenderType';
-import SubscriptionStyles from '../Styles/SubscriptionStyles';
+import SubscriptionTileStyles from 'src/styles/SubscriptionTileStyles';
 
-export default class SubscriptionComponent extends 
-    React.Component<SubscriptionProps, SubscriptionState> {
+export default class SubscriptionTileComponent extends 
+    React.Component<SubscriptionTileProps, SubscriptionTileState> {
 
-    constructor(props : SubscriptionProps){
+    constructor(props : SubscriptionTileProps){
       super(props)
       this.state = {
-        renderType: NotifyRenderType.Default
+        renderType: NotifyRenderType.Default,
+        showFull: false
       }
     }
 
@@ -28,10 +28,9 @@ export default class SubscriptionComponent extends
         return (
           <div>
             {this.renderNotify()}
-            <Card style={SubscriptionStyles.card}>
-                    <CardActionArea>
+            <Card style={SubscriptionTileStyles.card}>
+                    <CardActionArea onClick={() => this.setState({showFull: !this.state.showFull})}>
                       <CardMedia
-                        image={logo}
                         title={this.props.subscription.title}
                       />
                       <CardContent>
@@ -39,7 +38,7 @@ export default class SubscriptionComponent extends
                          {this.props.subscription.title}
                         </Typography>
                         <Typography component="p">
-                          {this.props.subscription.description}
+                          {this.formatDescription()}
                         </Typography>
                       </CardContent>
                     </CardActionArea>
@@ -52,9 +51,14 @@ export default class SubscriptionComponent extends
   renderNotify = () => {
     switch(this.state.renderType){
       case NotifyRenderType.Default: return;
-      case NotifyRenderType.TrialForm: 
-        return <TrialComponent onTry={this.subscribe}
-                               onCancel={this.cancel}/>
+      case NotifyRenderType.SubscribeConfirm:
+      return <SubscribeComponent isTrial={false}
+                                 onTry={this.subscribe}
+                                 onCancel={this.cancel}/>
+      case NotifyRenderType.TrialConfirm: 
+        return <SubscribeComponent isTrial={true}
+                                   onTry={this.subscribe}
+                                   onCancel={this.cancel}/>
       case NotifyRenderType.UnsubscribeConfirm: 
         return <UnsubscribeComponent onTry={this.unsubscribe}
                                      onCancel={this.cancel}/>
@@ -65,7 +69,10 @@ export default class SubscriptionComponent extends
     formatFooter = () => {
         if(!this.props.subscription.isPayed){
             return (<CardActions>
-                <Button variant="contained" size="small" color="primary" >
+                <Button variant="contained" 
+                        size="small"
+                        color="primary"
+                        onClick={()=>this.setState({renderType: NotifyRenderType.SubscribeConfirm})} >
                  {this.formatBuyButton()}
                 </Button>
                 {this.formatTryButton()}
@@ -79,6 +86,16 @@ export default class SubscriptionComponent extends
       </Button></CardActions>)
     }
 
+    formatDescription = () => {
+      const n = 80;
+      const desc = this.props.subscription.description
+      return this.state.showFull
+        ? desc 
+        : desc.length > n
+            ? desc.substring(0, n) + '...'
+            : desc;
+    }
+
     formatBuyButton = () => {
       return !this.props.subscription.price
       ? "Бесплатно" 
@@ -89,7 +106,7 @@ export default class SubscriptionComponent extends
       if(!this.props.subscription.price) return;
       return <Button size="small" 
                         color="primary" 
-                        onClick={() => this.setState({renderType: NotifyRenderType.TrialForm})}>
+                        onClick={() => this.setState({renderType: NotifyRenderType.TrialConfirm})}>
                  Попробовать
             </Button>
     }

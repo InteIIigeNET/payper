@@ -1,4 +1,4 @@
-const SubscriptionStyles = {
+const SubscriptionTileStyles = {
     card: {
       marginLeft: 12,
       marginRight: 12,
@@ -10,4 +10,4 @@ const SubscriptionStyles = {
     },
   };
 
-export default SubscriptionStyles;
+export default SubscriptionTileStyles;

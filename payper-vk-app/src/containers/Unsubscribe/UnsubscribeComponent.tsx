@@ -8,7 +8,7 @@ export default class UnsubscribeComponent extends React.Component<UnsubscribePro
     }
 
     public render() {
-        return <Dialog
+        return <Dialog fullWidth
         open={true}
         onClose={this.props.onCancel}
         aria-labelledby="alert-dialog-slide-title"
@@ -19,7 +19,7 @@ export default class UnsubscribeComponent extends React.Component<UnsubscribePro
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            Вы уверены, что хотите отписаться от рассылки? Данное действие невозможно отменить
+            Вы уверены, что хотите отписаться?<br/><br/>Рассылка перестанет приходить со следующего месяца
           </DialogContentText>
         </DialogContent>
         <DialogActions>

@@ -1,4 +1,4 @@
-export default  interface TrialState{
+export default  interface SubscribeState{
     email?: string,
     promocode?: string
 }

@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { TextField, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from '@material-ui/core';
-import TrialState from './TrialState';
+import SubscribeState from './SubscribeState';
 
-export default class TrialComponent extends React.Component<TrialProps, TrialState> {
-    constructor(props : TrialProps){
+export default class SubscribeComponent extends React.Component<SubscribeProps, SubscribeState> {
+    constructor(props : SubscribeProps){
         super(props)
         this.state = {}
     }
@@ -18,7 +18,7 @@ export default class TrialComponent extends React.Component<TrialProps, TrialSta
             <DialogTitle id="form-dialog-title">Попробуйте</DialogTitle>
             <DialogContent>
               <DialogContentText>
-                Вы можете опробовать месяц бесплатно, используя промокод. Дальше продлите подписку. 
+                Вы можете опробовать месяц бесплатно, используя промокод
               </DialogContentText>
               <TextField
                 margin="dense"
@@ -29,15 +29,7 @@ export default class TrialComponent extends React.Component<TrialProps, TrialSta
                 fullWidth
                 onChange={event => {this.setState({email: event.target.value})}}
               />
-              <TextField
-                margin="dense"
-                id="promo"
-                label="Промокод"
-                type="promo"
-                variant="filled"
-                fullWidth
-                onChange={event => {this.setState({promocode: event.target.value})}}
-              />
+              {this.renderPromo()}
             </DialogContent>
             <DialogActions>
               <Button onClick={() => this.props.onTry(this.state.email, this.state.promocode)} color="primary">
@@ -49,4 +41,18 @@ export default class TrialComponent extends React.Component<TrialProps, TrialSta
             </DialogActions>
           </Dialog>);
     }
+
+    renderPromo = () => {
+      if(this.props.isTrial)
+       return <TextField
+               margin="dense"
+               id="promo"
+              label="Промокод"
+              type="promo"
+              variant="filled"
+              fullWidth
+              onChange={event => {this.setState({promocode: event.target.value})}}
+            />
+      return;
+    } 
 }
