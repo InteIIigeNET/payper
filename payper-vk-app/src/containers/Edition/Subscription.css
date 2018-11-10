@@ -45,6 +45,7 @@
     position: absolute;
     top: 80%;
     right: 10%;
+    outline:none;
 }
 
 .little-subscribe{

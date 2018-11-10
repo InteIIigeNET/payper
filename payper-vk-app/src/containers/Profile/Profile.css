@@ -1,0 +1,58 @@
+.adressForSharing{
+    color:#a3a3a3;
+}
+
+.adress{
+    margin-top: 1.5em;
+    margin-left: 1em;
+    line-height: 1.3em;
+    margin-bottom: 0.5em;
+}
+
+.email{
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.period{
+    color:#a3a3a3;
+    font-weight: 500;
+    font-size: 0.8em;
+}
+
+.share{
+    text-align: left;
+    margin-right: 5em;
+    line-height: 1.3em;
+}
+
+hr{
+    width: 90%;
+    border: 0;
+    height: 1px;
+    background: #000;
+    opacity: 0.2;
+}
+
+.unsubscribeButton{
+    padding: 0.3em 0.5em;
+    border-radius: 12px;
+    color: #f34848;
+    text-align: center;
+    text-decoration: none;
+    outline:none;
+    font-size: 1em;
+    background-color: #ffffff;
+    border-color: #f5b5b5;
+    border-width: 0.07em;
+    position: absolute;
+    top: 40%;
+    right: 0%;
+}
+
+.base-share{
+    display: flex;
+    justify-content: space-around;
+    align-content: stretch;
+    position: relative;
+}
