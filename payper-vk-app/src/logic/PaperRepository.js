@@ -3,17 +3,19 @@ import lentach from '../img/lentach.jpg'
 import kokokotlin from '../img/kokokotlin.jpg'
 import meme from '../img/meme.jpg'
 import orange from '../img/orange.jpg'
+import sharePOP from '../img/sharePOP.png'
+import wine from '../img/wine.png'
 
 const publishersTileData = [
-  {
-    img: lentach,
-    title: 'Лентач',
-    author: 'lentach'
-  },
   {
     img: paper,
     title: 'Бумага',
     author: 'paper',
+  },
+  {
+    img: lentach,
+    title: 'Лентач',
+    author: 'lentach'
   },
   {
     img: meme,
@@ -50,4 +52,22 @@ const categoryTileData = [
   }
 ];
 
-export {publishersTileData, categoryTileData}
+const sharesTileData = [
+  {
+    img: sharePOP
+  },
+  {
+    img: wine
+  },
+  {
+    img: sharePOP  
+  },
+  {
+    img: sharePOP
+  },
+  {
+    img: sharePOP
+  }
+];
+
+export {publishersTileData, categoryTileData, sharesTileData}

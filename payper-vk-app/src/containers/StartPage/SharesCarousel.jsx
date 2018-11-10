@@ -6,8 +6,8 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-import {categoryTileData} from '../../logic/PaperRepository';
-import './CategoryCarousel.css';
+import {sharesTileData} from '../../logic/PaperRepository';
+import './SharesCarousel.css';
 
 const styles = theme => ({
   root: {
@@ -17,51 +17,45 @@ const styles = theme => ({
     overflow: 'hidden',
     backgroundColor: theme.palette.background.paper,
     marginLeft: '2%',
-    alignContent: 'stretch',
-    height: '3em'
-  },
-  title: {
-    align: 'left',
-    color: 'black'
-  },
-  titleBar: {
-    background: 'gray',
-    height: '100%',
-    align: 'justify',
-    borderRadius: '20px',
+    alignContent: 'stretch'
   },
   gridList: {
     flexWrap: 'nowrap',
     transform: 'translateZ(0)',
     paddingBottom: '2%',
-    width: '100%'
   },
   gridListTile: {
-    margin: '5px'
+    margin: '5px',
+    boxShadow: '2.5px 2.5px 8px rgba(0,0,0,0.25)',
+    borderRadius: '20px'
+  },
+  gridListTileImgH: {
+    height: '100%',
+    width: '100%',
+  },
+  gridListTileImgW: {
+    width: '100%',
+    height: '100%',
   },
 });
 
 
-function CategoryCarousel(props) {
+function SharesCarousel(props) {
   const { classes } = props;
 
   return (
     <div className='carousel'>
-      <div className='categories'>Поиск по категориям</div>
+      <div className='shares'>Популярные рассылки</div>
       <div className={classes.root}>
 
-        <GridList className={classes.gridList} cols={3} spacing={0} cellHeight='auto' >
-          {categoryTileData.map(tile => (
-              <GridListTile classes={{
-                root: classes.gridListTile
+        <GridList className={classes.gridList} cols={3} spacing={0} >
+          {sharesTileData.map(tile => (
+              <GridListTile rows={0.8} classes={{
+                root: classes.gridListTile,
+                imgFullHeight: classes.gridListTileImgH,
+                imgFullWidth: classes.gridListTileImgW,
                 }}>
-                <GridListTileBar
-                  title={tile.title}
-                  classes={{
-                    root: classes.titleBar,
-                    title: classes.title,
-                  }}
-                />
+                <img src={tile.img}/>
               </GridListTile>
           ))}
         </GridList>
@@ -70,8 +64,8 @@ function CategoryCarousel(props) {
   );
 }
 
-CategoryCarousel.propTypes = {
+SharesCarousel.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(CategoryCarousel);
+export default withStyles(styles)(SharesCarousel);

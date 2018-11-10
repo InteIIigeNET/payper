@@ -29,23 +29,23 @@ const styles = theme => ({
     color: 'black'
   },
   titleBar: {
-    background: 'gray',
     height: '20%',
     align: 'justify',
-    borderBottomLeftRadius: '5px',
-    borderBottomRightRadius: '5px'
+    background: 'rgba(255, 255, 255, 0.57)',
+    'border-radius': '0px 0px 9px 9px',
   },
   gridListTile: {
-    boxShadow: '0 4px 8px rgba(0,0,0,0.25)',
+    boxShadow: '2.5px 2.5px 8px rgba(0,0,0,0.25)',
     margin: '5px',
-    borderRadius : '5px',
+    borderRadius : '9px',
   },
-  gridListTileImageH: {
-    height: '95%',
-    width: '100%'
+  gridListTileImage: {
+    borderRadius : '9px',
   }
 });
 
+
+//проверить обрезание с tile
 
 function PublishersCarousel(props) {
   const { classes } = props;
@@ -59,7 +59,7 @@ function PublishersCarousel(props) {
           {publishersTileData.map(tile => (
               <GridListTile key={tile.img} classes={{
                 root: classes.gridListTile,
-                imgFullHeight: classes.gridListTileImageH
+                tile: classes.gridListTileImage
                 }}>
                 <img src={tile.img} alt={tile.title}/>
                 <GridListTileBar
