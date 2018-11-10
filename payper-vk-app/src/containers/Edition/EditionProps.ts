@@ -1,7 +1,5 @@
-import ISubscription from 'src/models/ISubscription';
+import IEdition from 'src/models/IEdition';
 
 export default interface EditionProps{
-    title: string,
-    description: string,
-    subscriptions?: ISubscription[]
+    edition: IEdition
 }
