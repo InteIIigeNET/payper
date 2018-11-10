@@ -23,3 +23,12 @@ export default class App extends React.Component {
     );
   }
 }
+
+/*       <div className="App">
+        <Edition title='Бумага' 
+        description="Когда-то мы придумали еженедельное письмо для читателей, в котором редакторы по-дружески рассказывают о самых интересных делах, которыми можно заняться в Петербурге на выходных."
+        subscriptions={[{title: "", description: "Три письма: о вине, петербургских домах и искусстве — по цене двух подписок", isPayed: false, price: 101, id: "1"},
+        {title: "Бесплатная подписка", description: "Неинформативное описание", isPayed: false, id:"2"},
+        {title: "Подписка для отписки", description: "Неинформативное описание", isPayed: true, price: 101, id:"2"}]}
+        />
+      </div> */
