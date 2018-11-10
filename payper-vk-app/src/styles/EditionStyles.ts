@@ -1,5 +1,3 @@
-import { white } from 'material-ui/styles/colors';
-
 const EditionStyles = {
     rightIcon: {
       marginLeft: 10
@@ -7,7 +5,7 @@ const EditionStyles = {
   headerDiv: {
     boxShadow: '0px 4px 14px -4px #000000',
     marginBottom: 20,
-    backgroundColor: white
+    backgroundColor: 'white'
   },
   mainDiv: {
     backgroundColor: '#edeeff',

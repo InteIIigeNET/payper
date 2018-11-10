@@ -11,7 +11,7 @@ enum Pages {
 
 interface IStates {
     page: Pages
-}   
+}
 
 export default class CurrentPage extends React.Component<{}, IStates> {
 
@@ -23,9 +23,17 @@ export default class CurrentPage extends React.Component<{}, IStates> {
     public render() {
         switch (this.state.page) {
             case Pages.Start:
-                return (<StartPage/>);
+                return (<StartPage />);
             case Pages.Edition:
-                return (<EditionComponent/>)
+                return (<EditionComponent
+                    edition={{
+                        title: 'Бумага',
+                        description: "Когда-то мы придумали еженедельное письмо для читателей, в котором редакторы по-дружески рассказывают о самых интересных делах, которыми можно заняться в Петербурге на выходных.",
+                        subscriptions:
+                            [{ title: "", description: "Три письма: о вине, петербургских домах и искусстве — по цене двух подписок", isPayed: false, price: 101, code: "1" },
+                            { title: "Бесплатная подписка", description: "Неинформативное описание", isPayed: false, code: "2" },
+                            { title: "Подписка для отписки", description: "Неинформативное описание", isPayed: true, price: 101, code: "2" }]
+                    }} />)
         }
     }
 }
