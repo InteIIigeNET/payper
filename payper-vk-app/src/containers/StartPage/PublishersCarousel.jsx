@@ -6,10 +6,8 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-import tileData from '../../logic/PaperRepository';
-import './HorizontalCarousel.css';
-import { Box } from 'grommet';
-import Paper from '@material-ui/core/Paper';
+import {publishersTileData} from '../../logic/PaperRepository';
+import './PublishersCarousel.css';
 
 const styles = theme => ({
   root: {
@@ -31,25 +29,25 @@ const styles = theme => ({
     color: 'black'
   },
   titleBar: {
-    background: 'gray',
     height: '20%',
     align: 'justify',
-    borderBottomLeftRadius: '5px',
-    borderBottomRightRadius: '5px'
+    background: 'rgba(255, 255, 255, 0.57)',
+    'border-radius': '0px 0px 9px 9px',
   },
   gridListTile: {
-    boxShadow: '0 4px 8px rgba(0,0,0,0.25)',
+    boxShadow: '2.5px 2.5px 8px rgba(0,0,0,0.25)',
     margin: '5px',
-    borderRadius : '5px',
+    borderRadius : '9px',
   },
-  gridListTileImageH: {
-    height: '95%',
-    width: '100%'
+  gridListTileImage: {
+    borderRadius : '9px',
   }
 });
 
 
-function SingleLineGridList(props) {
+//проверить обрезание с tile
+
+function PublishersCarousel(props) {
   const { classes } = props;
 
   return (
@@ -58,10 +56,10 @@ function SingleLineGridList(props) {
       <div className={classes.root}>
 
         <GridList className={classes.gridList} cols={3} rows={0.5} spacing={0} >
-          {tileData.map(tile => (
+          {publishersTileData.map(tile => (
               <GridListTile key={tile.img} classes={{
                 root: classes.gridListTile,
-                imgFullHeight: classes.gridListTileImageH
+                tile: classes.gridListTileImage
                 }}>
                 <img src={tile.img} alt={tile.title}/>
                 <GridListTileBar
@@ -79,8 +77,8 @@ function SingleLineGridList(props) {
   );
 }
 
-SingleLineGridList.propTypes = {
+PublishersCarousel.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SingleLineGridList);
+export default withStyles(styles)(PublishersCarousel);
