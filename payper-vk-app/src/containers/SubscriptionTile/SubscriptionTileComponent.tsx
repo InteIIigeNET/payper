@@ -31,6 +31,7 @@ export default class SubscriptionTileComponent extends
             <Card style={SubscriptionTileStyles.card}>
                     <CardActionArea onClick={() => this.setState({showFull: !this.state.showFull})}>
                       <CardMedia
+                        image={this.props.subscription.imgUrl}
                         title={this.props.subscription.title}
                       />
                       <CardContent>

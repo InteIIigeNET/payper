@@ -5,4 +5,5 @@ export default interface ISubscription
     isPayed: boolean,
     price?: number,
     code: string,
+    imgUrl?: string
 }

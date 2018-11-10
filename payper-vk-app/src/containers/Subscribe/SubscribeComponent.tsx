@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { TextField, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button } from '@material-ui/core';
 import SubscribeState from './SubscribeState';
+import SubscribeProps from './SubscribeProps';
 
 export default class SubscribeComponent extends React.Component<SubscribeProps, SubscribeState> {
     constructor(props : SubscribeProps){
