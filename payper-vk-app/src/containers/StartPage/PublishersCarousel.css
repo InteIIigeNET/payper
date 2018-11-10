@@ -1,8 +1,7 @@
 .publishers{
-    /* margin-top: 2%; */
     margin-left: 2%;
     margin-bottom: 2%;
-    font-family: Roboto;
+    font-family: Verdana;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -13,7 +12,7 @@
 .carousel{
     background: white;
     margin-top: 4%;
-    border-radius: 2%;
+    /* border-radius: 2%; */
     margin-bottom: 4%;
     overflow: hidden;
 }

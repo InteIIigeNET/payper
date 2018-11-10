@@ -18,7 +18,6 @@ const styles = theme => ({
     justifyContent: 'space-around',
     overflow: 'hidden',
     backgroundColor: theme.palette.background.paper,
-    marginLeft: '2%',
     alignContent: 'stretch',
   },
   gridList: {
@@ -58,7 +57,7 @@ class PublishersCarousel extends React.Component {
   handleOnClick = (id) => {
     this.setState({ redirect: true, id: id });
   }
-
+ 
   render() {
     const { classes } = this.props;
     if (this.state.redirect) {
