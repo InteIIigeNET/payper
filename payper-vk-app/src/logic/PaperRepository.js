@@ -8,26 +8,31 @@ import wine from '../img/wine.png'
 
 const publishersTileData = [
   {
+    id : 1,
     img: paper,
     title: 'Бумага',
     author: 'paper',
   },
   {
+    id : 2,
     img: lentach,
     title: 'Лентач',
     author: 'lentach'
   },
   {
+    id : 3,
     img: meme,
     title: 'Meme piper',
     author: 'meme',
   },
   {
+    id : 3,
     img: kokokotlin,
     title: 'Kokokotlin',
     author: 'kokokotlin',
   },
   {
+    id : 4,
     img: orange,
     title: 'Orange panda',
     author: 'orange',
