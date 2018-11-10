@@ -12,13 +12,10 @@ import Page from './containers/Page/Page';
 export default class App extends React.Component {
   public render() {
     return (
-      <div>
+      <div className='bat9'>
         <AppHeader />
         <div className='main'>
-          <Box fill='vertical' background={{
-            "color": "neutral-1",
-            "opacity": 'weak'
-          }}>
+          <Box>
             <Switch>
               <Route exact path='/' component={StartPage} />
               <Route path='/editions/:id' component={EditionComponent} />
