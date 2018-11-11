@@ -27,8 +27,6 @@ export default class PaperComponent extends React.Component<RouteComponentProps<
             <div >
                 <div className='headerDiv'>
                     <img className='header' src={header} />
-
-
                     <div className='info'>
                         <Icon className='info-icon'>
                             <InfoOutlinedIcon />

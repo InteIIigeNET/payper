@@ -5,6 +5,8 @@ import { withStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import './Form.css';
+import VKConnection from 'src/VKApi/VKConnection';
+import PaperApi from 'src/Api/PaperApi';
 
 const styles = theme => ({
     container: {
@@ -20,7 +22,9 @@ const styles = theme => ({
 
 class Form extends React.Component {
     state = {
-        name: ''
+        name: '',
+        promo: '',
+        showForm: true
     };
 
     handleChange = name => event => {
@@ -31,7 +35,7 @@ class Form extends React.Component {
 
     render() {
         const { classes } = this.props;
-
+        if(!this.state.showForm) return;
         return (
             <form className={classes.container} noValidate autoComplete="off">
                 <div className='form-container'>
@@ -49,11 +53,21 @@ class Form extends React.Component {
                         className={classes.textField}
                         helperText="(если есть)"
                         fullWidth={true}
+                        onChange={this.handleChange('promo')}
                     />
                 </div>
-                <button className='form-page-button'>Оплатить {this.props.price}</button>
+                <button onClick={() => this.tryToPay()} className='form-page-button'>Оплатить {this.props.price}</button>
             </form>
         );
+    }
+
+    tryToPay = () => {
+        //VKConnection.PayToTestGroup(1, () => this.succssesPay(), e => {}, "Ошибка при оплате");
+        this.setState({showForm : false})
+    }
+
+    succssesPay = async () => {
+       //await PaperApi.subscribe(this.state.name, this.props.code);
     }
 }
 

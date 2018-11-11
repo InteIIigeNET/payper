@@ -2,12 +2,12 @@ import * as React from 'react';
 import popcorn from '../../img/popcorn.png';
 import Form from './Form';
 import './Page.css';
+import VkConnection from '../../VKApi/VKConnection'
 
 class Page extends React.Component {
     constructor(props) {
         super(props);
     }
-
 
     state = {
         edition: this.getPage(this.props.match.params.id)
@@ -38,7 +38,7 @@ class Page extends React.Component {
                     <div className='page-period'>
                         {this.state.edition.period}
                     </div>
-                    <Form price={this.state.edition.price} />
+                    <Form price={this.state.edition.price} code='house' />
 
                 </div>
                 <div className='page-description-panel'>
@@ -50,8 +50,6 @@ class Page extends React.Component {
             </div>
         );
     }
-
-
 }
 
 export default Page;

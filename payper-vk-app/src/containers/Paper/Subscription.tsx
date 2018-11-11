@@ -1,12 +1,11 @@
 import * as React from 'react';
 import Subscription from 'src/models/Subscription';
-import popcorn from '../../img/popcorn.png'
 import './Subscription.css'
 import { Link } from 'react-router-dom';
 
 class SubscriptionComponent extends React.Component<Subscription> {
     render() {
-        var cost = this.props.price ? this.props.price + ' руб. в месяц' : 'Бесплатно';
+        var cost = this.props.Price ? this.props.Price + ' руб. в месяц' : 'Бесплатно';
         return (
             <Link to='/payper/page/1'>
                 <div className='subscription'>
