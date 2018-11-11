@@ -27,7 +27,11 @@ class BottomNavBar extends React.Component {
                 this.props.history.push(path);
                 break;
             case 1:
-                var path = '/profile';    
+                var path = '/more';
+                this.props.history.push(path);
+                break;
+            case 2:
+                var path = '/profile';
                 this.props.history.push(path);
                 break;
         }
@@ -37,20 +41,21 @@ class BottomNavBar extends React.Component {
     render() {
         const { value } = this.state;
         const { pathname } = this.props.location;
-        
-        if(!pathname.startsWith('/page/') && pathname != '/login')
-        return (
-            <div className='nav-bar'>
-                <BottomNavigation
-                    value={value}
-                    onChange={this.handleChange}
-                    showLabels
-                >
-                    <BottomNavigationAction label="Подборка" icon={<DashboardIcon />} />
-                    <BottomNavigationAction label="Профиль" icon={<AccountCircleIcon />} />
-                </BottomNavigation>
-            </div>
-        );
+
+        if (!pathname.startsWith('/page/') && pathname != '/login')
+            return (
+                <div className='nav-bar'>
+                    <BottomNavigation
+                        value={value}
+                        onChange={this.handleChange}
+                        showLabels
+                    >
+                        <BottomNavigationAction label="Подборка" icon={<DashboardIcon />} />
+                        <BottomNavigationAction label="Больше" icon={<ListIcon />} />
+                        <BottomNavigationAction label="Профиль" icon={<AccountCircleIcon />} />
+                    </BottomNavigation>
+                </div>
+            );
         return null;
     }
 }
