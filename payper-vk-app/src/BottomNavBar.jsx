@@ -38,7 +38,7 @@ class BottomNavBar extends React.Component {
         const { value } = this.state;
         const { pathname } = this.props.location;
         
-        if(!pathname.startsWith('/page/'))
+        if(!pathname.startsWith('/page/') && pathname != '/login')
         return (
             <div className='nav-bar'>
                 <BottomNavigation

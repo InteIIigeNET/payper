@@ -8,8 +8,10 @@ import EditionComponent from './containers/Edition/EditionComponent';
 import AppHeader from './AppHeader';
 import Profile from './containers/Profile/Profile';
 import Page from './containers/Page/Page';
+import Login from './containers/Login/Login';
 
 export default class App extends React.Component {
+
   public render() {
     return (
       <div className='bat9'>
@@ -18,9 +20,10 @@ export default class App extends React.Component {
           <Box>
             <Switch>
               <Route exact path='/' component={StartPage} />
-              <Route path='/editions/:id' component={EditionComponent} />
+              <Route path='/editions' component={EditionComponent} />
               <Route path='/profile' component={Profile} />
-              <Route path='/page/:id' component={Page}/>
+              <Route path='/page/:id' component={Page} />
+              <Route path='/login' component={Login} />
             </Switch>
           </Box>
         </div>
