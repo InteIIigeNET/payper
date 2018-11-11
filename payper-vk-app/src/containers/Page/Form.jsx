@@ -10,6 +10,7 @@ const styles = theme => ({
     container: {
         display: 'flex',
         flexWrap: 'wrap',
+        marginTop: '10%'
     },
     textField: {
         marginLeft: theme.spacing.unit,
@@ -46,7 +47,7 @@ class Form extends React.Component {
                         id="promo-code"
                         label="Промокод"
                         className={classes.textField}
-                        helperText="Some important text"
+                        helperText="(если есть)"
                         fullWidth={true}
                     />
                 </div>

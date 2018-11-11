@@ -5,6 +5,7 @@ import './Subscription.css'
 
 class Subscription extends React.Component<ISubscription> {
     render() {
+        var cost = this.props.price ? this.props.price + ' руб. в месяц' : 'Бесплатно'; 
         return (
             <div className='subscription'>
                 <img className='background-image' src={popcorn}></img>
@@ -15,9 +16,9 @@ class Subscription extends React.Component<ISubscription> {
                 <div className='subscribe'>
                     Новый выпуск каждую неделю
                 </div>
-                <button className='subscribeButton'>Бесплатно</button>
+                <button className='subscribeButton'>Подписаться</button>
                 <div className='little-subscribe'>
-                    Подписаться
+                    {cost}
                 </div>
             </div>
         );
