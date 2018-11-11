@@ -35,7 +35,7 @@ class Form extends React.Component {
 
     render() {
         const { classes } = this.props;
-        if(!this.state.showForm) return;
+        if(!this.state.showForm) return null;
         return (
             <form className={classes.container} noValidate autoComplete="off">
                 <div className='form-container'>

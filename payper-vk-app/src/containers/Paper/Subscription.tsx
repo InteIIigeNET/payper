@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 class SubscriptionComponent extends React.Component<Subscription> {
     render() {
-        var cost = this.props.Price ? this.props.Price + ' руб. в месяц' : 'Бесплатно';
+        var cost = this.props.Price === 0 ? this.props.Price + ' руб. в месяц' : 'Бесплатно';
         return (
             <Link to='/payper/page/1'>
                 <div className='subscription'>
@@ -23,8 +23,6 @@ class SubscriptionComponent extends React.Component<Subscription> {
             </Link>
         );
     }
-
-
 }
 
 export default SubscriptionComponent;
