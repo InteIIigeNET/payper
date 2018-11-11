@@ -55,7 +55,7 @@ export default class PaperComponent extends React.Component<RouteComponentProps<
                 IsPayed={sub.IsPayed}
                 Price={sub.Price}
                 Code={sub.Code}
-                ImgUrl={sub.ImgUrl}/>)}
+                />)}
             </div>
         )
     }
