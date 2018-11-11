@@ -1,4 +1,4 @@
-export default interface ISubscription
+﻿export default interface ISubscription
 {
     title: string,
     description: string,
