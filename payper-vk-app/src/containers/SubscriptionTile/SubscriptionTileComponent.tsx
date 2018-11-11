@@ -43,7 +43,7 @@ export default class SubscriptionTileComponent extends
   }
 
     formatFooter = () => {
-        if(!this.props.subscription.isPayed){
+        if(!this.props.subscription.IsPayed){
             return (<CardActions>
                 <Button variant="contained" 
                         size="small"
@@ -64,7 +64,7 @@ export default class SubscriptionTileComponent extends
 
     formatDescription = () => {
       const n = 80;
-      const desc = this.props.subscription.description
+      const desc = this.props.subscription.Description
       return this.state.showFull
         ? desc 
         : desc.length > n
@@ -73,13 +73,13 @@ export default class SubscriptionTileComponent extends
     }
 
     formatBuyButton = () => {
-      return !this.props.subscription.price
+      return this.props.subscription.Price === 0
       ? "Бесплатно" 
-      : `Подписаться ${this.props.subscription.price}Р`
+      : `Подписаться ${this.props.subscription.Price}Р`
     }
 
     formatTryButton = () => {
-      if(!this.props.subscription.price) return;
+      if(this.props.subscription.Price === 0) return;
       return <Button size="small" 
                         color="primary" 
                         onClick={() => this.setState({renderType: NotifyRenderType.TrialConfirm})}>
@@ -105,12 +105,12 @@ export default class SubscriptionTileComponent extends
           <Card style={SubscriptionTileStyles.card}>
                   <CardActionArea onClick={() => this.setState({showFull: !this.state.showFull})}>
                     <CardMedia
-                      image={this.props.subscription.imgUrl}
-                      title={this.props.subscription.title}
+                      image={this.props.subscription.ImgUrl}
+                      title={this.props.subscription.Title}
                     />
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="h2">
-                       {this.props.subscription.title}
+                       {this.props.subscription.Title}
                       </Typography>
                       <Typography component="p">
                         {this.formatDescription()}
