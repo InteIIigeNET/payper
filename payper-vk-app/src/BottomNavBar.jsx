@@ -23,15 +23,15 @@ class BottomNavBar extends React.Component {
         this.setState({ value });
         switch (value) {
             case 0:
-                var path = '/';
+                var path = '/payper';
                 this.props.history.push(path);
                 break;
             case 1:
-                var path = '/more';
+                var path = '/payper/more';
                 this.props.history.push(path);
                 break;
             case 2:
-                var path = '/profile';
+                var path = '/payper/profile';
                 this.props.history.push(path);
                 break;
         }
@@ -42,7 +42,7 @@ class BottomNavBar extends React.Component {
         const { value } = this.state;
         const { pathname } = this.props.location;
 
-        if (!pathname.startsWith('/page/') && pathname != '/login')
+        if (!pathname.startsWith('/payper/page/') && pathname != '/payper/login')
             return (
                 <div className='nav-bar'>
                     <BottomNavigation

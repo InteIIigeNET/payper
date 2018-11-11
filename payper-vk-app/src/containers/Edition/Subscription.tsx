@@ -8,7 +8,7 @@ class Subscription extends React.Component<ISubscription> {
     render() {
         var cost = this.props.price ? this.props.price + ' руб. в месяц' : 'Бесплатно';
         return (
-            <Link to='/page/1'>
+            <Link to='/payper/page/1'>
                 <div className='subscription'>
 
                     <img className='background-image' src={popcorn}></img>

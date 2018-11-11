@@ -61,7 +61,7 @@ class PublishersCarousel extends React.Component {
   render() {
     const { classes } = this.props;
     if (this.state.redirect) {
-      var path = '/editions/' + this.state.id;
+      var path = '/payper';
       return (<Redirect push to={path}>
       </Redirect>);
     }

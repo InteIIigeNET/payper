@@ -19,11 +19,11 @@ export default class App extends React.Component {
         <div className='main'>
           <Box>
             <Switch>
-              <Route exact path='/login' component={Login} />
-              <Route exact path='/more' component={StartPage} />
-              <Route exact path='/' component={EditionComponent} />
-              <Route path='/profile' component={Profile} />
-              <Route path='/page/:id' component={Page} />
+              <Route exact path='/payper/login' component={Login} />
+              <Route exact path='/payper/more' component={StartPage} />
+              <Route exact path='/payper' component={EditionComponent} />
+              <Route path='/payper/profile' component={Profile} />
+              <Route path='/payper/page/:id' component={Page} />
             </Switch>
           </Box>
         </div>
