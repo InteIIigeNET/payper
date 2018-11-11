@@ -28,14 +28,14 @@ export default class SubscriptionComponent extends
                     <CardActionArea>
                       <CardMedia
                         image="../../logo.svg"
-                        title={this.props.subscription.title}
+                        title={this.props.subscription.Title}
                       />
                       <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
-                         {this.props.subscription.title}
+                         {this.props.subscription.Title}
                         </Typography>
                         <Typography component="p">
-                          {this.props.subscription.description}
+                          {this.props.subscription.Description}
                         </Typography>
                       </CardContent>
                     </CardActionArea>
@@ -54,7 +54,7 @@ export default class SubscriptionComponent extends
   }
 
     formatFooter = () => {
-        if(!this.props.subscription.isPayed){
+        if(!this.props.subscription.IsPayed){
             return (<CardActions>
                 <Button variant="contained" size="small" color="primary" >
                  {this.formatPrice()}
@@ -70,8 +70,8 @@ export default class SubscriptionComponent extends
     }
 
     formatPrice = () => {
-      return !this.props.subscription.price
+      return !this.props.subscription.Price
       ? "Бесплатно" 
-      : `Подписаться ${this.props.subscription.price}Р`
+      : `Подписаться ${this.props.subscription.Price}Р`
     }
 }

@@ -1,23 +1,20 @@
 import * as React from 'react';
-import ISubscription from 'src/models/ISubscription';
+import Subscription from 'src/models/Subscription';
 import popcorn from '../../img/popcorn.png'
 import './Subscription.css'
 import { Link } from 'react-router-dom';
 
-class Subscription extends React.Component<ISubscription> {
+class SubscriptionComponent extends React.Component<Subscription> {
     render() {
         var cost = this.props.price ? this.props.price + ' руб. в месяц' : 'Бесплатно';
         return (
             <Link to='/payper/page/1'>
                 <div className='subscription'>
-
-                    <img className='background-image' src={popcorn}></img>
-
-                    <div className='title'>
-                        {this.props.title}
-                    </div>
-                    <div className='subscribe'>
-                        Новый выпуск каждую неделю
+                <div className='title'>
+                    {this.props.Title}
+                </div>
+                <div className='subscribe'>
+                    Новый выпуск каждую неделю
                 </div>
                     <button className='subscribeButton'>Подписаться</button>
                     <div className='little-subscribe'>
@@ -31,4 +28,4 @@ class Subscription extends React.Component<ISubscription> {
 
 }
 
-export default Subscription;
+export default SubscriptionComponent;

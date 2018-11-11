@@ -46,7 +46,7 @@ namespace Payper.Api.Controllers
 			await _userSubscriptionsRepository.RemoveAsync(email, code);
 		}
 
-		[HttpPost("list")]
+		[HttpGet("list")]
 		public async Task<Subscription[]> GetSubscriptions(string email, string code)
 		{
 			var subscriptionsResult = await _paperService.GetSubscriptionsAsync();
@@ -78,7 +78,7 @@ namespace Payper.Api.Controllers
 			return await _paperService.ValidatePromocodeAsync(email, code, promocode);
 		}
 
-		private IEnumerable<Subscription> ConvertFrom(IEnumerable<SubscriptionData> data, Func<string, bool> validator)
+		private static IEnumerable<Subscription> ConvertFrom(IEnumerable<SubscriptionData> data, Func<string, bool> validator)
 		{
 			return data.Select(subscriptionData =>
 				new Subscription
