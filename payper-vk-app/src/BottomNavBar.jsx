@@ -16,8 +16,7 @@ import { withRouter } from 'react-router';
 
 class BottomNavBar extends React.Component {
     state = {
-        value: -1,
-        visible: true
+        value: -1
     };
 
     handleChange = (event, value) => {
@@ -28,16 +27,6 @@ class BottomNavBar extends React.Component {
                 this.props.history.push(path);
                 break;
             case 1:
-                // var path = '/';
-                // return (<Redirect push to={path}>
-                // </Redirect>);
-                break;
-            case 2:
-                // var path = '/';
-                // return (<Redirect push to={path}>
-                // </Redirect>);
-                break;
-            case 3:
                 var path = '/profile';    
                 this.props.history.push(path);
                 break;
@@ -49,7 +38,7 @@ class BottomNavBar extends React.Component {
         const { value } = this.state;
         const { pathname } = this.props.location;
         
-        if(!pathname.startsWith('/page/'))
+        if(!pathname.startsWith('/page/') && pathname != '/login')
         return (
             <div className='nav-bar'>
                 <BottomNavigation
@@ -58,8 +47,6 @@ class BottomNavBar extends React.Component {
                     showLabels
                 >
                     <BottomNavigationAction label="Подборка" icon={<DashboardIcon />} />
-                    <BottomNavigationAction label="Список" icon={<ListIcon />} />
-                    <BottomNavigationAction label="Поиск" icon={<SearchIcon />} />
                     <BottomNavigationAction label="Профиль" icon={<AccountCircleIcon />} />
                 </BottomNavigation>
             </div>

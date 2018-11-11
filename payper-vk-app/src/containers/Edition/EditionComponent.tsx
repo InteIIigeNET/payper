@@ -1,4 +1,4 @@
-import * as React from 'react'
+﻿import * as React from 'react'
 import { Icon } from '@material-ui/core';
 import { RouteComponentProps } from 'react-router-dom';
 import IEdition from 'src/models/IEdition';

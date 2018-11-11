@@ -44,7 +44,7 @@ class AppHeader extends React.Component {
     const { classes } = this.props;
     const { pathname } = this.props.location;
     var button = null;
-    if (pathname != '/') {
+    if (pathname != '/' && pathname != '/login') {
       button =
         (<IconButton onClick={() => this.props.history.go(-1)} className={classes.backButton} color="inherit" aria-label="Back">
           <ChevronLeftIcon />

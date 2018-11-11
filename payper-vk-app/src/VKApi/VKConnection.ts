@@ -1,7 +1,6 @@
 import connect from '@vkontakte/vkui-connect'
 import VKConst from './VKConst'
 
-
 enum VKRequest {
     INIT                = 'VKWebAppInit',
     GET_EMAIL           = 'VKWebAppGetEmail',
@@ -73,7 +72,6 @@ export default class VKConnection {
             let result = JSON.parse(e.detail.data);
 
             if (e.detail.type == VKRequestAnswers.GET_EMAIL_SUCCESS) {
-                
                 let email : string = result.email;
 
                 // check to correct sign

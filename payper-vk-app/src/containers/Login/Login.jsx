@@ -1,10 +1,10 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
-import './Form.css';
+import './Login.css';
+import logo from '../../img/paperHeader.jpg';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import './Login.css';
 
 const styles = theme => ({
     container: {
@@ -18,7 +18,8 @@ const styles = theme => ({
     },
 });
 
-class Form extends React.Component {
+class Login extends React.Component {
+
     state = {
         name: ''
     };
@@ -31,10 +32,12 @@ class Form extends React.Component {
 
     render() {
         const { classes } = this.props;
-
-        return (
-            <form className={classes.container} noValidate autoComplete="off">
-                <div className='form-container'>
+        return (<div className='login-container'>
+            <img className='welcome-logo' src={logo}/>
+            <div>
+                <div className='welcome-title'>Авторизация</div>
+                <hr />
+                <form className={classes.container} noValidate autoComplete="off">
                     <TextField
                         id="email"
                         label="Email"
@@ -43,22 +46,15 @@ class Form extends React.Component {
                         fullWidth={true}
                         onChange={this.handleChange('name')}
                     />
-                    <TextField
-                        id="promo-code"
-                        label="Промокод"
-                        className={classes.textField}
-                        helperText="(если есть)"
-                        fullWidth={true}
-                    />
-                </div>
-                <button className='form-page-button'>Оплатить {this.props.price}</button>
-            </form>
-        );
+                    <button className='login-button'>Войти</button>
+                </form>
+            </div>
+        </div>);
     }
 }
 
-Form.propTypes = {
+Login.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Form);
+export default withStyles(styles)(Login);

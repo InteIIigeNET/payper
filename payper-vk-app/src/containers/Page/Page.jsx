@@ -29,15 +29,18 @@ class Page extends React.Component {
 
     render() {
         return (
-            <div className='page-subscription'>
-                <img className='page-background-image' src={popcorn}></img>
-                <div className='page-title'>
-                    {this.state.edition.title}
+            <div>
+                <div className='page-subscription'>
+                    <img className='page-background-image' src={popcorn}></img>
+                    <div className='page-title'>
+                        {this.state.edition.title}
+                    </div>
+                    <div className='page-period'>
+                        {this.state.edition.period}
+                    </div>
+                    <Form price={this.state.edition.price} />
+
                 </div>
-                <div className='page-period'>
-                    {this.state.edition.period}
-                </div>
-                <Form price={this.state.edition.price} />
                 <div className='page-description-panel'>
                     <div className='page-description'>
                         <div className='page-description-header'>Описание</div>
