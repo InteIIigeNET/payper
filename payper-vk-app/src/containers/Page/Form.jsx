@@ -62,8 +62,7 @@ class Form extends React.Component {
     }
 
     tryToPay = () => {
-        //VKConnection.PayToTestGroup(1, () => this.succssesPay(), e => {}, "Ошибка при оплате");
-        this.setState({showForm : false})
+        VKConnection.PayToTestGroup(1, () => this.succssesPay(), e => {}, "Ошибка при оплате");
     }
 
     succssesPay = async () => {

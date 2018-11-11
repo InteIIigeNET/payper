@@ -6,10 +6,10 @@ import registerServiceWorker from './registerServiceWorker';
 import { Router } from 'react-router-dom';
 import {createBrowserHistory} from 'history';
 
-//import VKConnection from './VKApi/VKConnection';
+import VKConnection from './VKApi/VKConnection';
 
 const history = createBrowserHistory();
-//VKConnection.Init(e => {});
+VKConnection.Init(e => {});
 
 ReactDOM.render(
   <Router history={history}>
