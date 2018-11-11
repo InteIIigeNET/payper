@@ -2,6 +2,7 @@ import * as React from 'react';
 import Subscription from 'src/models/Subscription';
 import './Subscription.css'
 import { Link } from 'react-router-dom';
+import popcorn from '../../img/popcorn.png'
 
 class SubscriptionComponent extends React.Component<Subscription> {
     render() {
@@ -9,6 +10,9 @@ class SubscriptionComponent extends React.Component<Subscription> {
         return (
             <Link to='/payper/page/1'>
                 <div className='subscription'>
+
+<img className='background-image' src={popcorn}></img>
+
                 <div className='title'>
                     {this.props.Title}
                 </div>

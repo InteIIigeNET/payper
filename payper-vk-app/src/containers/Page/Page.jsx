@@ -10,10 +10,10 @@ class Page extends React.Component {
     }
 
     state = {
-        edition: this.getPage(this.props.match.params.id)
+        edition: this.getPage()
     }
 
-    getPage(id) {
+    getPage() {
         return ({
             title: 'Что интересного на ближайшие выходные в Петербурге?',
             description: `Каждый четверг один из редакторов «Бумаги» пишет вам дружеское письмо. 

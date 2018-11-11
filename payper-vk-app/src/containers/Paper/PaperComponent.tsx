@@ -50,7 +50,7 @@ export default class PaperComponent extends React.Component<RouteComponentProps<
         if (!this.Paper.Subscriptions) return;
         return (
             <div>
-                {this.Paper.Subscriptions.map(sub => <SubscriptionComponent Title={sub.Title} 
+                {this.Paper.Subscriptions.map( sub => <SubscriptionComponent Title={sub.Title}
                 Description={sub.Description}  
                 IsPayed={sub.IsPayed}
                 Price={sub.Price}
